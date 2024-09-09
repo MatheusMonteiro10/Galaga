@@ -5,10 +5,11 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "/usr/include",
-                "/usr/local/include"
+                "/usr/local/include",
+                "/home/matheus/ASCII_Engine"
             ],
             "defines": [],
-            "cStandard": "c17",
+            "cStandard": "c11",
             "cppStandard": "c++17",
             "intelliSenseMode": "linux-gcc-x64"
         }
