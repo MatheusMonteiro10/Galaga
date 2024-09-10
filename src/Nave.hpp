@@ -14,7 +14,7 @@ public:
     void sofrerAtaque(int ataque) { (life - ataque >= 0) ? life - ataque : 0; }
     int atacar() const { return 1; }
 
-    void pegarItem() {item = true;} //colocar tempo limite no buff do item
+    void pegarItem() {item = true;} //colocar uma quantidade de disparos para terminar o buff do item
     bool possuiItem() const { return item; }
 
 private:

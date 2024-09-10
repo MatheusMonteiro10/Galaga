@@ -1,12 +1,12 @@
-#ifndef MONSTRO_HPP
-#define MONSTRO_HPP
+#ifndef INIMIGO_HPP
+#define INIMIGO_HPP
 
 #include "ObjetoDeJogo.hpp"
 
-class Monstro : public ObjetoDeJogo
+class Inimigo : public ObjetoDeJogo
 {
 public:
-    Monstro(const ObjetoDeJogo &obj, int life = 1) : ObjetoDeJogo(obj), life(life) {} 
+    Inimigo(const ObjetoDeJogo &obj, int life = 1) : ObjetoDeJogo(obj), life(life) {} 
 
     int getLife() const {return life;}
     bool isAlive() const {return life != 0;}
