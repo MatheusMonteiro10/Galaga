@@ -6,5 +6,5 @@
 
 void FaseLevel1::init()
 {
-    naveHeroi = new ObjetoDeJogo("NaveHeroi", Sprite())
+    naveHeroi = new Nave("NaveHeroi", SpriteAnimado("rsc/NaveHeroi.txt"), 2, 20, 20);
 }
