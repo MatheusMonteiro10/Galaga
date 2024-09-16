@@ -1,3 +1,4 @@
+/*
 #ifndef NAVEINIMIGA_HPP
 #define NAVEINIMIGA_HPP
 
@@ -20,3 +21,4 @@ private:
     bool item;
 };
 #endif
+*/

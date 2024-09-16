@@ -1,3 +1,4 @@
+/*
 #ifndef INIMIGO_HPP
 #define INIMIGO_HPP
 
@@ -18,3 +19,4 @@ private:
 
 };
 #endif
+*/
