@@ -1,11 +1,11 @@
 #ifndef FASELEVEL_HPP
 #define FASELEVEL_HPP
 
-#include "NaveInimiga.hpp"
 #include "ASCII_Engine/SpriteBuffer.hpp"
 #include "ASCII_Engine/ObjetoDeJogo.hpp"
 #include "ASCII_Engine/Fase.hpp"
 #include "Nave.hpp"
+#include "Monstro.hpp"
 
 class FaseLevel1 : public Fase
 {
@@ -20,8 +20,12 @@ public:
     //bool colideComBloco() const;
 
 private:
-    //NaveInimiga *naveInimiga[4]; 
+    Monstro *monstros[5]; 
     Nave *naveHeroi; 
+
+    //std::list<ObjetoDeJogo> colisoes;
+
+    enum{ESQUERDA, DIREITA};
 
 };
 #endif

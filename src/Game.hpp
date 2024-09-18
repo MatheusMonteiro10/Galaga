@@ -8,6 +8,7 @@
 #include "ASCII_Engine/SpriteAnimado.hpp"
 
 //g++ -std=c++17 -o game src/*.cpp src/ASCII_Engine/*cpp && ./game
+//g++ -std=c++17 -o game src/*.cpp src/ASCII_Engine/*.cpp src/ASCII_Engine/Core/*.cpp && ./game
 
 class Game
 {
@@ -17,7 +18,7 @@ public:
 	
 	static void run()
 	{
-		SpriteBuffer buffer(250,57);
+		SpriteBuffer buffer(200,55);
 	
 		//FaseStart start("FaseStart",SpriteAnimado("rsc/castleMedieval.anm",3));
 		FaseLevel1 fase1("Fase1",Sprite("rsc/background.txt"));
