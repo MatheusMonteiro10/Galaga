@@ -2,6 +2,7 @@
 #define MONSTRO_HPP
 
 #include "ASCII_Engine/ObjetoDeJogo.hpp"
+#include <cstdlib>
 
 //assistir aula 7
 
@@ -15,7 +16,13 @@ public:
     bool isAlive() const {return life != 0;}
 
     void sofrerAtaque(int ataque) { (life - ataque >= 0) ? life - ataque : 0; }
-    int atacar() const { return 1; }
+    int atacar() const 
+    { 
+        int chance = rand() % 10;
+        if (chance < 7)
+            return 0;
+        return 1; 
+    }
 
 private:
     int ataque;

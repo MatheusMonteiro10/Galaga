@@ -1,5 +1,5 @@
-#ifndef FASELEVEL_HPP
-#define FASELEVEL_HPP
+#ifndef FASELEVEL1_HPP
+#define FASELEVEL1_HPP
 
 #include "ASCII_Engine/SpriteBuffer.hpp"
 #include "ASCII_Engine/ObjetoDeJogo.hpp"
@@ -22,10 +22,13 @@ public:
 private:
     Monstro *monstros[5]; 
     Nave *naveHeroi; 
+    ObjetoDeJogo *disparoNaveHeroi;
+    ObjetoDeJogo *disparoMonstro;
 
     //std::list<ObjetoDeJogo> colisoes;
 
-    enum{ESQUERDA, DIREITA};
+    enum{ESQUERDA, DIREITA}; //estados de movimento dos monstros
+    enum{UP, END, DOWN}; //estados de movimento dos disparos
 
 };
 #endif

@@ -21,7 +21,7 @@ public:
 		SpriteBuffer buffer(200,55);
 	
 		//FaseStart start("FaseStart",SpriteAnimado("rsc/castleMedieval.anm",3));
-		FaseLevel1 fase1("Fase1",Sprite("rsc/background.txt"));
+		FaseLevel1 fase1("Fase1",Sprite("rsc/background.img"));
 		//FaseFinal faseFinal("Fase1",Sprite("rsc/title1Gothic.img"));
 		
 		//start.init();
