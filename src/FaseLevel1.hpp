@@ -7,6 +7,8 @@
 #include "Nave.hpp"
 #include "Monstro.hpp"
 
+#include <list>
+
 class FaseLevel1 : public Fase
 {
 public:
@@ -24,8 +26,6 @@ private:
     Nave *naveHeroi; 
     ObjetoDeJogo *disparoNaveHeroi;
     ObjetoDeJogo *disparoMonstro;
-
-    //std::list<ObjetoDeJogo> colisoes;
 
     enum{ESQUERDA, DIREITA}; //estados de movimento dos monstros
     enum{UP, END, DOWN}; //estados de movimento dos disparos
