@@ -24,6 +24,10 @@ void FaseLevel1::init()
     objs.push_back(monstros[4]);
 
     disparoNaveHeroi = nullptr; // Inicializa o disparo como nulo
+
+    for (int i = 0; i < 5; i++){
+        disparoMonstro[i] = nullptr;
+    }
 }
 
 unsigned FaseLevel1::run(SpriteBuffer &screen)
@@ -32,6 +36,8 @@ unsigned FaseLevel1::run(SpriteBuffer &screen)
 
     int stateMonstros = DIREITA;
     int stateDisparo = END;
+    int stateDisparoMonstros[5] = {END,END,END,END,END};
+    int posUltimo = 4;
 
     system("clear");
     draw(screen);
@@ -59,6 +65,8 @@ unsigned FaseLevel1::run(SpriteBuffer &screen)
             }
         }
 
+        //Se já existe um disparo ativo verifica se colide com algum dos monstros
+        //Se colide com algum monstro, disparo muda de estado para END e o monstro é desativado
         if (disparoNaveHeroi != nullptr){
             for (int m = 0; m < 5; m++){
                 if (disparoNaveHeroi->colideCom(*monstros[m])){
@@ -70,6 +78,7 @@ unsigned FaseLevel1::run(SpriteBuffer &screen)
             }
         }
 
+        //Se o estado do disparo é UP ele continua até atingir o topo da tela
         if (stateDisparo == UP)
         {
             if (disparoNaveHeroi->getPosL() > 0)
@@ -78,20 +87,54 @@ unsigned FaseLevel1::run(SpriteBuffer &screen)
                 stateDisparo = END;
         }
 
+        //Se o estado do disparo é END e existe um disparo ativo
+        //Disparo é desativado e setado como null para liberar um novo disparo
         if (stateDisparo == END && disparoNaveHeroi != nullptr)
         {
             disparoNaveHeroi->desativarObj();
             disparoNaveHeroi = nullptr;
         }     
 
+        //Se o método ataque funcionar e não existir um disparo ativo é criado um novo disparo
+        for (int i = 0; i < 5; i++){
+            if (monstros[i]->atacar() == 1 && (disparoMonstro[i] == nullptr)){
+                disparoMonstro[i] = new ObjetoDeJogo("DisparoMonstro", Sprite("rsc/disparoMonstroInimigo.img"),monstros[i]->getPosL() - 1, monstros[i]->getPosC() + 6);
+                objs.push_back(disparoMonstro[i]);
+                stateDisparoMonstros[i] = DOWN;
+            }
+
+            // Movimenta o disparo do monstro se ativo
+            if (stateDisparoMonstros[i] == DOWN) {
+                if (disparoMonstro[i]->getPosL() < 55)
+                    disparoMonstro[i]->moveDown(3);
+                else
+                    stateDisparoMonstros[i] = END;
+            }
+
+            if (disparoMonstro[i] != nullptr && disparoMonstro[i]->colideCom(*naveHeroi)) {
+                naveHeroi->sofrerAtaque(monstros[i]->atacar());
+                stateDisparoMonstros[i] = END;
+            }
+
+            // Se o disparo acabou, remove o objeto
+            if (stateDisparoMonstros[i] == END && disparoMonstro[i] != nullptr) {
+                disparoMonstro[i]->desativarObj();
+                disparoMonstro[i] = nullptr;
+            }
+        }
         switch (stateMonstros)
         {
-        case DIREITA:
-            //int limDireita = 4;
-            //
+            //somente apos a verificação do monstro mais a direita a logica de movimento pode funcionar
             //if (!monstro[4]->isAlive()) se o monstro mais a direita nao esta vivo
             //a logica da movimentação deve desconsiderar ele e passar para monstro[n-1]
-            if (monstros[4]->getPosC() < screen.getLarguraMax() - monstros[4]->getSprite()->getLarguraMax())
+            /*
+            for (int i = 4; i >= 0; i--){
+                if (!monstros[i]->isAlive())
+                    posUltimo = i;
+            }
+            */
+        case DIREITA:           
+            if (monstros[posUltimo]->getPosC() < screen.getLarguraMax() - monstros[posUltimo]->getSprite()->getLarguraMax())
             {
                 monstros[4]->moveRight(3);
                 monstros[3]->moveRight(3);

@@ -19,13 +19,11 @@ public:
     virtual void init();
     virtual unsigned run(SpriteBuffer &screen);
 
-    //bool colideComBloco() const;
-
 private:
     Monstro *monstros[5]; 
     Nave *naveHeroi; 
     ObjetoDeJogo *disparoNaveHeroi;
-    ObjetoDeJogo *disparoMonstro;
+    ObjetoDeJogo *disparoMonstro[5];
 
     enum{ESQUERDA, DIREITA}; //estados de movimento dos monstros
     enum{UP, END, DOWN}; //estados de movimento dos disparos

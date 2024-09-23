@@ -2,7 +2,7 @@
 #define MONSTRO_HPP
 
 #include "ASCII_Engine/ObjetoDeJogo.hpp"
-#include <cstdlib>
+#include <random>
 
 //assistir aula 7
 
@@ -18,10 +18,17 @@ public:
     void sofrerAtaque(int ataque) { (life - ataque >= 0) ? life - ataque : 0; }
     int atacar() const 
     { 
-        int chance = rand() % 10;
-        if (chance < 7)
-            return 0;
-        return 1; 
+        std::random_device rd;
+        std::mt19937 gen(rd());
+
+        std::uniform_int_distribution<> distrib(0, 99);
+
+        int random_value = distrib(gen); 
+
+            if (random_value == 10)
+                return 1;
+            else 
+                return 0;         
     }
 
 private:
