@@ -111,7 +111,7 @@ unsigned FaseLevel1::run(SpriteBuffer &screen)
                     stateDisparoMonstros[i] = END;
             }
 
-            //Se o disparo atingir a nave
+            //Se o disparo atingir a nave realiza o ataque e muda o estado de disparo para END
             if (disparoMonstro[i] != nullptr && disparoMonstro[i]->colideCom(*naveHeroi)) {
                 naveHeroi->sofrerAtaque(1);
                 stateDisparoMonstros[i] = END;
