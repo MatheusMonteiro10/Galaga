@@ -25,6 +25,8 @@ private:
     ObjetoDeJogo *disparoNaveHeroi;
     ObjetoDeJogo *disparoMonstro[5];
 
+    TextSprite *life;
+
     enum{ESQUERDA, DIREITA}; //estados de movimento dos monstros
     enum{UP, END, DOWN}; //estados de movimento dos disparos
 

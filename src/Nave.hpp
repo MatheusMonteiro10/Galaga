@@ -13,7 +13,7 @@ public:
     int getLife() const { return life; }
     bool isAlive() const { return life != 0; }
 
-    void sofrerAtaque(int ataque) { (life - ataque >= 0) ? life - ataque : 0; }
+    void sofrerAtaque(int ataque) { (life - ataque >= 0) ? life -= ataque : 0; }
     int atacar() const { return 1; }
 
     void pegarItem() {item = true;} //colocar uma quantidade de disparos para terminar o buff do item
