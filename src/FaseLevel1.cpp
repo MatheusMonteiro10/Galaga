@@ -23,6 +23,14 @@ void FaseLevel1::init()
     monstros[4] = new Monstro(ObjetoDeJogo("Monstro5", Sprite("rsc/monstro.img"), 12, 111));
     objs.push_back(monstros[4]);
 
+    objs.push_back(new ObjetoDeJogo("Life",TextSprite("###"),6,10));
+	SpriteBase *tmp = const_cast<SpriteBase*> (objs.back()->getSprite());
+	life = dynamic_cast<TextSprite*> (tmp);
+
+    objs.push_back(new ObjetoDeJogo("LIFE",TextSprite("LIFE: "),6,3));
+	SpriteBase *tmp2 = const_cast<SpriteBase*> (objs.back()->getSprite());
+	palavraLife = dynamic_cast<TextSprite*> (tmp2);
+
     disparoNaveHeroi = nullptr; // Inicializa o disparo como nulo
 
     for (int i = 0; i < 5; i++){
@@ -80,6 +88,8 @@ unsigned FaseLevel1::run(SpriteBuffer &screen)
                             break; // Não precisa continuar verificando, sai do loop
                         }
                     }
+                    if (todosMortos)
+                        return Fase::LEVEL_COMPLETE;
                 }
             }
         }
@@ -118,11 +128,9 @@ unsigned FaseLevel1::run(SpriteBuffer &screen)
             if (disparoMonstro[i] != nullptr && disparoMonstro[i]->colideCom(*naveHeroi)) {
                 naveHeroi->sofrerAtaque(1);
                 stateDisparoMonstros[i] = END;
-                if (!naveHeroi->isAlive()){
-                    naveHeroi->desativarObj();
-                    return Fase::END_GAME;
-                }
-                    
+                life->setText(std::string(naveHeroi->getLife(),'#'));
+                if (!naveHeroi->isAlive())
+                    return Fase::END_GAME;                  
             }
 
             if (stateDisparoMonstros[i] == END && disparoMonstro[i] != nullptr) {

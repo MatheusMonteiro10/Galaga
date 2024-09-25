@@ -26,6 +26,7 @@ private:
     ObjetoDeJogo *disparoMonstro[5];
 
     TextSprite *life;
+    TextSprite *palavraLife;
 
     enum{ESQUERDA, DIREITA}; //estados de movimento dos monstros
     enum{UP, END, DOWN}; //estados de movimento dos disparos
