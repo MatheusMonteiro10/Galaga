@@ -7,7 +7,6 @@
 #include "ASCII_Engine/Sprite.hpp"
 #include "ASCII_Engine/SpriteAnimado.hpp"
 
-//g++ -std=c++17 -o game src/*.cpp src/ASCII_Engine/*cpp && ./game
 //g++ -std=c++17 -o game src/*.cpp src/ASCII_Engine/*.cpp src/ASCII_Engine/Core/*.cpp && ./game
 
 class Game
@@ -44,4 +43,4 @@ public:
 
 };
 
-#endif // GAME_HPP
+#endif

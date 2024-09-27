@@ -19,7 +19,6 @@ unsigned FaseFinal::run(SpriteBuffer &screen)
 	
 	for (int i = 0 ; i < 15 ; i++)
 	{
-		//lendo entrada
 		getline(std::cin,ent);
 		if (ent == "q")
 			return Fase::END_GAME;
@@ -29,7 +28,6 @@ unsigned FaseFinal::run(SpriteBuffer &screen)
         else
             nave->desativarObj();
 		
-		//padrão
 		update();
         screen.clear();
 		draw(screen);

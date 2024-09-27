@@ -10,7 +10,6 @@ unsigned FaseStart::run(SpriteBuffer &screen)
 {
 	std::string ent;
 	
-	//padrão
 	draw(screen);
 	system("clear");
 	show(screen);
@@ -23,7 +22,6 @@ unsigned FaseStart::run(SpriteBuffer &screen)
         else
             Fase::LEVEL_COMPLETE;
 		
-		//padrão
 		update();
 		draw(screen);
 		system("clear");
