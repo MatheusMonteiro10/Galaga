@@ -1,4 +1,4 @@
-#include "ASCII_Engine/Core/SpriteBase.hpp" //->getLarguraMax()
+#include "ASCII_Engine/Core/SpriteBase.hpp" //getLarguraMax()
 #include "FaseLevel1.hpp"
 
 #include <iostream>

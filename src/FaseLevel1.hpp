@@ -30,6 +30,5 @@ private:
 
     enum{ESQUERDA, DIREITA}; //estados de movimento dos monstros
     enum{UP, END, DOWN}; //estados de movimento dos disparos
-
 };
 #endif
