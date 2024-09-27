@@ -14,5 +14,4 @@ public:
 	virtual void init();
 	virtual unsigned run(SpriteBuffer &screen);
 };
-
 #endif
