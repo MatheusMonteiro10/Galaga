@@ -1,2 +1,2 @@
 # Galaga
-Projeto de dísciplina - POO
+Projeto de disciplina - POO
